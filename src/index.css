@@ -1,4 +1,10 @@
 @import "tailwindcss";
+
 @theme {
   --color-mint-500: oklch(0.72 0.11 178);
+  --color-primary: oklch(0.63 0.258 292.3°);
+}
+
+:root {
+  font-family: "Mulish", sans-serif;
 }
