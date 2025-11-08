@@ -8,7 +8,7 @@ import NavBar from "./components/NavBar";
 function App() {
   const [dark, setDark] = useState(false);
   return (
-    <div className={dark ? "dark" : ""}>
+    <div className="h-screen overflow-hidden flex flex-col">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />

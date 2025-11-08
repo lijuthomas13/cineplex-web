@@ -1,8 +1,9 @@
 import React from 'react'
+import MovieList from '../components/MovieList'
 
 const Home = () => {
   return (
-    <div className='text-primary dark:bg-gray-800'>Home</div>
+    <MovieList />
   )
 }
 
