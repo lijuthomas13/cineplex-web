@@ -1,9 +1,86 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useMovieDetailsStore } from "../store/useMovieDetailsStore";
+import Button from "../assets/UiComponents/Button/Button";
+import Badge from "../assets/UiComponents/Badge/Badge";
+import { FaRegStar } from "react-icons/fa";
+import { MdSchedule } from "react-icons/md";
 
 const MovieDetails = () => {
+  const { id } = useParams();
+  const { fetchMovieDetails, movie } = useMovieDetailsStore();
+  console.log(movie, "movie");
+  useEffect(() => {
+    if (id) {
+      fetchMovieDetails(id);
+    }
+  }, [id]);
   return (
-    <div>MovieDetails</div>
-  )
-}
+    <main className="flex-1 px-6 py-8 overflow-y-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div>
+          <div
+            className="aspect-[2/3] w-full rounded-xl shadow-lg bg-cover bg-center"
+            style={{ backgroundImage: `url(${movie?.poster})` }}
+            aria-label={`Poster for ${movie?.title}`}
+          ></div>
+        </div>
 
-export default MovieDetails
+        <div className="md:col-span-2 flex flex-col gap-8">
+          <div className="flex flex-col gap-4">
+            <h1 className="text-4xl font-extrabold text-gray-900">
+              {movie?.title}
+            </h1>
+
+            <p className="text-gray-600 text-base">{movie?.description}</p>
+            <div className="flex flex-wrap items-center gap-2 pt-2">
+              {movie?.genre.map((genre) => (
+                <Badge variant="primary" key={genre}>
+                  {genre}
+                </Badge>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-6 text-gray-500 pt-4">
+              <div className="flex items-center gap-2">
+                <FaRegStar className="text-primary text-xl" />
+                <span className="text-gray-900 font-semibold">
+                  {movie?.rating}/10
+                </span>
+                <span className="text-sm">(IMDb)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MdSchedule className="text-primary text-xl" />
+                <span className="text-sm font-medium">{movie?.duration}</span>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4">
+            <h2 className="text-2xl font-bold text-gray-900">Select Theatre</h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {movie?.shows?.map((show) => (
+                <div
+                  key={show.id}
+                  className="flex flex-col justify-between p-5 border rounded-xl bg-white hover:border-primary/50 transition-all shadow-sm"
+                >
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900">
+                      {show.theatre.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 mt-1">
+                      {show.theatre.location}
+                    </p>
+                  </div>
+                  <Button className="mt-4">View Seats</Button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+export default MovieDetails;

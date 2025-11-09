@@ -2,7 +2,9 @@
 
 .cineplex_badge {
     @apply text-xs font-medium px-2 py-1 rounded-full;
-
+    &.primary {
+        @apply bg-purple-100 text-primary;
+    }
     &.secondary {
         @apply text-gray-600 bg-gray-200
     }

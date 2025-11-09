@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import MyTickets from "./pages/MyTickets";
 import NavBar from "./components/NavBar";
+import MovieDetails from "./pages/MovieDetails";
 
 function App() {
   const [dark, setDark] = useState(false);
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/my-tickets" element={<MyTickets />} />
+         <Route path="/movie/:id" element={<MovieDetails />} />
       </Routes>
     </div>
   );
