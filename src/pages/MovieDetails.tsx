@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useMovieDetailsStore } from "../store/useMovieDetailsStore";
 import Button from "../assets/UiComponents/Button/Button";
 import Badge from "../assets/UiComponents/Badge/Badge";
@@ -9,12 +9,15 @@ import { MdSchedule } from "react-icons/md";
 const MovieDetails = () => {
   const { id } = useParams();
   const { fetchMovieDetails, movie } = useMovieDetailsStore();
-  console.log(movie, "movie");
+  const navigate = useNavigate();
   useEffect(() => {
     if (id) {
       fetchMovieDetails(id);
     }
   }, [id]);
+  const goToShowDetails = (showId: any) => {
+    navigate(`/movie/${id}/show/${showId}`);
+  };
   return (
     <main className="flex-1 px-6 py-8 overflow-y-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -72,7 +75,12 @@ const MovieDetails = () => {
                       {show.theatre.location}
                     </p>
                   </div>
-                  <Button className="mt-4">View Seats</Button>
+                  <Button
+                    className="mt-4"
+                    onClick={() => goToShowDetails(show?.id)}
+                  >
+                    View Seats
+                  </Button>
                 </div>
               ))}
             </div>

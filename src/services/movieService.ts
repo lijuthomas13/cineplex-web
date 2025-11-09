@@ -11,3 +11,11 @@ export const fetchMovieDetails = async (movieId: string) => {
   );
   return response;
 };
+
+export const fetchShowDetails = async (showId: string) => {
+  const response = await apiClient.post<any>(
+    "rpc/get_show_details",
+    { show_id_input: showId }
+  );
+  return response.data;
+};
