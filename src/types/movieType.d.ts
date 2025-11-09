@@ -1,3 +1,5 @@
+import { SEAT_STATUS, SEAT_CATEGORY } from "../constants";
+
 export interface MovieType {
   id: number;
   title: string;
@@ -20,4 +22,24 @@ export interface ShowType {
 
 export interface MovieDetailsType extends MovieType {
   shows: ShowType[];
+}
+
+type SeatType = {
+  id: string;
+  status: SEAT_STATUS;
+};
+
+type RowType = {
+  row: string;
+  category: SEAT_CATEGORY;
+  price: number;
+  seats: Seat[];
+};
+
+export interface ShowDetailsType {
+  showId: string;
+  showTime: string;
+  theatre: TheatreType;
+  layout: RowType[],
+  movie: MovieType
 }
