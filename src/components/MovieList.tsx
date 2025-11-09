@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Button from "../assets/UiComponents/Button/Button";
 import Badge from "../assets/UiComponents/Badge/Badge";
 import { useMovieStore } from "../store/useMovieStore";

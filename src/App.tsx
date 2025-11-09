@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
@@ -7,7 +6,6 @@ import NavBar from "./components/NavBar";
 import MovieDetails from "./pages/MovieDetails";
 
 function App() {
-  const [dark, setDark] = useState(false);
   return (
     <div className="h-screen overflow-hidden flex flex-col">
       <NavBar />
