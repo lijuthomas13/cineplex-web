@@ -34,3 +34,10 @@ export const bookSeats = async (
 
   return response.data;
 }
+
+export const fetchUserBookings = async () => {
+  const response = await apiClient.post<any>("rpc/get_user_bookings", {
+    p_user_id: "cd9cf1ef-21c2-4869-b7cf-bdf6e2315342",
+  });
+  return response.data;
+};

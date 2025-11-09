@@ -1,7 +1,7 @@
 @reference "../../../index.css";
 
 .cineplex_badge {
-    @apply text-xs font-medium px-2 py-1 rounded-full;
+    @apply text-xs font-medium px-2 py-1 rounded-full flex gap-1;
     &.primary {
         @apply bg-purple-100 text-primary;
     }

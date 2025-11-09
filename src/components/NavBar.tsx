@@ -4,9 +4,7 @@ import { RiMovie2Line } from "react-icons/ri";
 const NavBar = () => {
   return (
     <header className="position:sticky top-0 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-4 sm:px-6 lg:px-10 py-3">
-      {/* Left Section - Logo + Nav */}
       <div className="flex items-center gap-8">
-        {/* Logo and title */}
         <div className="flex items-center gap-4 text-black">
           <RiMovie2Line className="text-primary text-2xl" />
           <h2 className="text-black text-lg font-bold ">Cineplex</h2>
