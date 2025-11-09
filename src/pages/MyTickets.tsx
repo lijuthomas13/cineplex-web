@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useMyTicketsStore } from "../store/useMyTicketsStore";
 import { formatDate } from "../utils";
-import { FaShareAlt } from "react-icons/fa";
-import Badge from "../assets/UiComponents/Badge/Badge";
+// import { FaShareAlt } from "react-icons/fa";
+// import Badge from "../assets/UiComponents/Badge/Badge";
 
 const MyTickets = () => {
   const { bookings, fetchMyTickets } = useMyTicketsStore();
