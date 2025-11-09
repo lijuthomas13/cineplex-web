@@ -1,0 +1,9 @@
+@reference "../../../index.css";
+
+.cineplex_badge {
+    @apply text-xs font-medium px-2 py-1 rounded-full;
+
+    &.secondary {
+        @apply text-gray-600 bg-gray-200
+    }
+}
