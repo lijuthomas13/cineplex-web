@@ -61,7 +61,7 @@ const ConfirmTicketModal: React.FC<{
         </div>
         <div>
           <p className="text-sm text-gray-500">Seats Selected:</p>
-          <div className="flex gap-2 mt-1 flex-wrap justify-center sm:justify-start">
+          <div className="flex gap-2 mt-1 flex-wrap -start">
             {selectedSeats.length === 0 && (
               <span className="text-gray-400 text-xs">None</span>
             )}

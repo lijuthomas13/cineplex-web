@@ -50,7 +50,7 @@ const MyTickets = () => {
                     </p>
                   </div>
 
-                  <div className="mt-auto flex gap-4">
+                  {/* <div className="mt-auto flex gap-4">
                     <button
                       onClick={() => {
                         navigator.share?.({
@@ -68,7 +68,7 @@ const MyTickets = () => {
                         </div>
                       </Badge>
                     </button>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="flex-shrink-0 w-full md:w-40 h-40 flex items-center justify-center p-3 bg-white border border-gray-200 rounded-lg">
                   <img

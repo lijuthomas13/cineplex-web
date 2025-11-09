@@ -14,7 +14,7 @@ const MovieList = () => {
     navigate(`/movie/${id}`);
   };
   return (
-    <main className="flex-1 mt-6 overflow-y-auto">
+    <main className="flex-1 py-6 overflow-y-auto">
       <div className="flex justify-between items-center px-4 mb-6">
         <h1 className="text-4xl font-black text-gray-900">Now Showing</h1>
       </div>
@@ -30,7 +30,8 @@ const MovieList = () => {
               style={{ backgroundImage: `url(${movie.poster})` }}
             ></div>
 
-            <div className="flex flex-col flex-1 p-4">
+            <div className="flex flex-col justify-between flex-1 p-4">
+              <div>
               <p className="text-base font-bold text-gray-900">{movie.title}</p>
 
               <div className="flex flex-wrap gap-2 mt-2">
@@ -40,7 +41,7 @@ const MovieList = () => {
                   </Badge>
                 ))}
               </div>
-
+                </div>
               <Button
                 className="mt-4 w-full"
                 onClick={() => goToMovieDetails(movie?.id)}
