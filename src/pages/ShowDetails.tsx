@@ -6,6 +6,7 @@ import type { RowType, SeatType } from "../types/movieType";
 import SeatLayout from "../components/SeatLayout";
 import MovieShowFooter from "../components/MovieShowFooter";
 import ConfirmTicketModal from "../components/ConfirmTicketModal";
+import { toast } from "react-toastify";
 
 const ShowDetails = () => {
   const { showId } = useParams();
@@ -19,12 +20,15 @@ const ShowDetails = () => {
       fetchShow(showId);
     }
   }, [showId]);
-  console.log(show, "show");
 
   const toggleSeat = (row: RowType, seat: SeatType) => {
     if (seat.status === "booked") return;
-
+    debugger;
     const isSelected = selectedSeats.includes(seat.id);
+    if (selectedSeats?.length >= 8 && !isSelected) {
+      toast.info("You can only select up to 8 seats");
+      return;
+    }
     const updatedSeats = isSelected
       ? selectedSeats.filter((id) => id !== seat.id)
       : [...selectedSeats, seat.id];
