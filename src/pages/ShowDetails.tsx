@@ -8,14 +8,15 @@ import MovieShowFooter from "../components/MovieShowFooter";
 import ConfirmTicketModal from "../components/ConfirmTicketModal";
 import { toast } from "react-toastify";
 import { SEAT_STATUS } from "../constants";
+import Loader from "../assets/UiComponents/Loader";
 
 const ShowDetails = () => {
   const { showId } = useParams();
-  const { show, fetchShow } = useMovieShowStore();
+  const { isLoading, show, fetchShow } = useMovieShowStore();
   const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
   const [total, setTotal] = useState<number>(0);
   const [showConfirmModa, setShowConfirmModal] = useState<boolean>(false);
-  console.log(showConfirmModa, "showConfirmModa");
+
   useEffect(() => {
     if (showId) {
       fetchShow(showId);
@@ -41,7 +42,9 @@ const ShowDetails = () => {
     setSelectedSeats([]);
     setTotal(0);
   };
-
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="flex-1 overflow-y-auto">
       <div className="flex justify-center py-5">

@@ -1,21 +1,23 @@
 import { useEffect } from "react";
 import { useMyTicketsStore } from "../store/useMyTicketsStore";
 import { formatDate } from "../utils";
+import Loader from "../assets/UiComponents/Loader";
 // import { FaShareAlt } from "react-icons/fa";
 // import Badge from "../assets/UiComponents/Badge/Badge";
 
 const MyTickets = () => {
-  const { bookings, fetchMyTickets } = useMyTicketsStore();
+  const { isLoading, bookings, fetchMyTickets } = useMyTicketsStore();
   useEffect(() => {
     fetchMyTickets();
   }, []);
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-wrap justify-between gap-3 mb-6">
-          <h1 className="text-gray-900 text-4xl font-bold">
-            My Tickets
-          </h1>
+          <h1 className="text-gray-900 text-4xl font-bold">My Tickets</h1>
         </div>
 
         <div className="grid grid-cols-1 gap-6 mt-6">
