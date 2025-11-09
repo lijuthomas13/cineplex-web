@@ -19,16 +19,16 @@ const MovieList = () => {
   }
 
   return (
-    <main className="flex-1 py-6 overflow-y-auto md:px-8">
+    <main className="flex-1 py-6 overflow-y-auto md:px-8  dark:bg-gray-800">
       <div className="flex justify-between items-center px-4 mb-6">
-        <h1 className="text-4xl font-black text-gray-900">Now Showing</h1>
+        <h1 className="text-4xl font-black text-gray-900 dark:text-white">Now Showing</h1>
       </div>
 
       <div className="grid moview-list-grid gap-6 px-4">
         {movies.map((movie) => (
           <div
             key={movie.id}
-            className="flex flex-col group overflow-hidden rounded-xl bg-gray-100 border border-transparent hover:border-primary/50 transition duration-300"
+            className="flex flex-col group overflow-hidden rounded-xl bg-gray-100 border border-transparent hover:border-primary/50 transition duration-300 dark:bg-white/5 dark:text-white"
           >
             <div
               className="aspect-[3/4] bg-cover bg-center rounded-t-xl transition-transform duration-500 group-hover:scale-105"
@@ -37,7 +37,7 @@ const MovieList = () => {
 
             <div className="flex flex-col justify-between flex-1 p-4">
               <div>
-                <p className="text-base font-bold text-gray-900">
+                <p className="text-base font-bold text-gray-900 dark:text-white">
                   {movie.title}
                 </p>
 

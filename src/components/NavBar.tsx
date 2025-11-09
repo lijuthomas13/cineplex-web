@@ -1,16 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
 import { RiMovie2Line } from "react-icons/ri";
 import { BsTicketPerforatedFill } from "react-icons/bs";
-import { MdHome } from "react-icons/md";
+import { MdDarkMode, MdHome } from "react-icons/md";
+import { useGlobalStore } from "../store/useGlobalStore";
+import { CiLight } from "react-icons/ci";
 
 const NavBar = () => {
+  const { theme, setTheme } = useGlobalStore();
   return (
     <header className="position:sticky top-0 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-4 sm:px-6 lg:px-10 py-3">
       <div className="flex items-center gap-6">
         <Link to="/">
           <div className="flex items-center gap-4 text-black">
             <RiMovie2Line className="text-primary text-2xl hidden md:block" />
-            <h2 className="text-black text-lg font-bold">Cineplex</h2>
+            <h2 className="text-black text-lg font-bold  dark:text-white">
+              Cineplex
+            </h2>
           </div>
         </Link>
         <nav className="hidden md:flex items-center gap-9">
@@ -19,7 +24,7 @@ const NavBar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-primary text-sm "
-                : "text-black text-sm  hover:text-primary "
+                : "text-black text-sm  hover:text-primary  dark:text-white"
             }
           >
             Home
@@ -29,7 +34,7 @@ const NavBar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-primary text-sm"
-                : "text-black text-sm  hover:text-primary "
+                : "text-black text-sm  hover:text-primary  dark:text-white"
             }
           >
             My Tickets
@@ -39,7 +44,9 @@ const NavBar = () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? "text-primary" : "text-gray-600 hover:text-primary"
+              isActive
+                ? "text-primary "
+                : "text-gray-600 hover:text-primary  dark:text-white"
             }
           >
             <MdHome className="text-2xl" />
@@ -48,14 +55,28 @@ const NavBar = () => {
           <NavLink
             to="/my-tickets"
             className={({ isActive }) =>
-              isActive ? "text-primary" : "text-gray-600 hover:text-primary"
+              isActive
+                ? "text-primary"
+                : "text-gray-600 hover:text-primary  dark:text-white"
             }
           >
             <BsTicketPerforatedFill className="text-2xl" />
           </NavLink>
         </nav>
       </div>
-      <div className="flex flex-1 justify-end gap-4 sm:gap-6">
+      <div className="flex flex-1 justify-end items-center gap-4 sm:gap-6">
+        {theme == "light" && (
+          <MdDarkMode
+            onClick={() => setTheme("dark")}
+            className="text-4xl text-gray-800"
+          />
+        )}
+        {theme == "dark" && (
+          <CiLight
+            onClick={() => setTheme("light")}
+            className="text-4xl text-white"
+          />
+        )}
         <div
           className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
           style={{

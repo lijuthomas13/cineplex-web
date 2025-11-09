@@ -5,10 +5,16 @@ import MyTickets from "./pages/MyTickets";
 import NavBar from "./components/NavBar";
 import MovieDetails from "./pages/MovieDetails";
 import ShowDetails from "./pages/ShowDetails";
+import { useGlobalStore } from "./store/useGlobalStore";
 
 function App() {
+  const { theme } = useGlobalStore();
   return (
-    <div className="h-screen overflow-hidden flex flex-col">
+    <div
+      className={`h-screen overflow-hidden flex flex-col ${
+        theme == "dark" ? "dark dark:bg-gray-800" : ""
+      } `}
+    >
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
