@@ -37,9 +37,21 @@ type RowType = {
 };
 
 export interface ShowDetailsType {
-  showId: string;
+  showId: number;
   showTime: string;
   theatre: TheatreType;
   layout: RowType[],
   movie: MovieType
 }
+
+export interface BookingType {
+  booking_id: number;
+  movie_title: string;
+  movie_poster: string;
+  theatre_name: string;
+  theatre_location: string;
+  show_time: string;
+  seats: string[];
+  total_price: number;
+  created_at: string;
+};
