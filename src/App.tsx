@@ -1,54 +1,23 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import apiClient from './apiClient'
+import { useState } from "react";
+import "./App.css";
+import Home from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
+import MyTickets from "./pages/MyTickets";
+import NavBar from "./components/NavBar";
+import MovieDetails from "./pages/MovieDetails";
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [movies, setMovies] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-console.log(movies,'movies')
-console.log(loading,'loading')
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await apiClient.get<any[]>("movies?select=*");
-        console.log(response,'response')
-        setMovies(response.data);
-      } catch (error) { 
-        console.error("Error fetching movies:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchMovies();
-  }, []);
+  const [dark, setDark] = useState(false);
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="h-screen overflow-hidden flex flex-col">
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/my-tickets" element={<MyTickets />} />
+         <Route path="/movie/:id" element={<MovieDetails />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
