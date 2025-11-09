@@ -19,15 +19,17 @@ const MovieDetails = () => {
     navigate(`/movie/${id}/show/${showId}`);
   };
   return (
-    <main className="flex-1 px-6 py-8 overflow-y-auto">
+    <main className="flex-1 px-6 py-8 overflow-y-auto md:px-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div>
-          <div
-            className="aspect-[2/3] w-full rounded-xl shadow-lg bg-cover bg-center"
-            style={{ backgroundImage: `url(${movie?.poster})` }}
-            aria-label={`Poster for ${movie?.title}`}
-          ></div>
-        </div>
+
+  <div className="aspect-[2/3] w-full max-h-[36rem] rounded-xl shadow-lg overflow-hidden">
+    <img
+      src={movie?.poster}
+      alt={`Poster for ${movie?.title}`}
+      className="w-full h-full object-cover"
+      loading="lazy"
+    />
+  </div>
 
         <div className="md:col-span-2 flex flex-col gap-8">
           <div className="flex flex-col gap-4">
@@ -65,7 +67,7 @@ const MovieDetails = () => {
               {movie?.shows?.map((show) => (
                 <div
                   key={show.id}
-                  className="flex flex-col justify-between p-5 border rounded-xl bg-white hover:border-primary/50 transition-all shadow-sm"
+                  className="flex flex-col justify-between p-5 border border-gray-300 rounded-xl bg-white hover:border-primary/50 transition-all shadow-sm"
                 >
                   <div>
                     <h3 className="text-lg font-bold text-gray-900">

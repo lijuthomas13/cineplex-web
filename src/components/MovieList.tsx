@@ -14,7 +14,7 @@ const MovieList = () => {
     navigate(`/movie/${id}`);
   };
   return (
-    <main className="flex-1 py-6 overflow-y-auto">
+    <main className="flex-1 py-6 overflow-y-auto md:px-8">
       <div className="flex justify-between items-center px-4 mb-6">
         <h1 className="text-4xl font-black text-gray-900">Now Showing</h1>
       </div>
