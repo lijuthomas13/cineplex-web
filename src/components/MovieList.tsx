@@ -2,12 +2,17 @@ import { useEffect } from "react";
 import Button from "../assets/UiComponents/Button/Button";
 import Badge from "../assets/UiComponents/Badge/Badge";
 import { useMovieStore } from "../store/useMovieStore";
+import { useNavigate } from "react-router-dom";
 
 const MovieList = () => {
   const { movies, fetchMovies } = useMovieStore();
+  const navigate = useNavigate();
   useEffect(() => {
     fetchMovies();
   }, []);
+  const goToMovieDetails = (id: any) => {
+    navigate(`/movie/${id}`);
+  };
   return (
     <main className="flex-1 mt-6 overflow-y-auto">
       <div className="flex justify-between items-center px-4 mb-6">
@@ -36,7 +41,12 @@ const MovieList = () => {
                 ))}
               </div>
 
-              <Button className="mt-4 w-full">View Details</Button>
+              <Button
+                className="mt-4 w-full"
+                onClick={() => goToMovieDetails(movie?.id)}
+              >
+                View Details
+              </Button>
             </div>
           </div>
         ))}
