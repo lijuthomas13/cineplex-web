@@ -5,12 +5,15 @@ import PriceChartLegend from "../components/PriceChartLegend";
 import type { RowType, SeatType } from "../types/movieType";
 import SeatLayout from "../components/SeatLayout";
 import MovieShowFooter from "../components/MovieShowFooter";
+import ConfirmTicketModal from "../components/ConfirmTicketModal";
 
 const ShowDetails = () => {
   const { showId } = useParams();
   const { show, fetchShow } = useMovieShowStore();
   const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
   const [total, setTotal] = useState<number>(0);
+  const [showConfirmModa, setShowConfirmModal] = useState<boolean>(false);
+  console.log(showConfirmModa, "showConfirmModa");
   useEffect(() => {
     if (showId) {
       fetchShow(showId);
@@ -67,7 +70,16 @@ const ShowDetails = () => {
         total={total}
         selectedSeats={selectedSeats}
         clearSelection={clearSelection}
+        setShowConfirmModal={setShowConfirmModal}
       />
+      {showConfirmModa && (
+        <ConfirmTicketModal
+          show={show}
+          total={total}
+          selectedSeats={selectedSeats}
+          onClose={() => setShowConfirmModal(false)}
+        />
+      )}
     </div>
   );
 };

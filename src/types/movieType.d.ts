@@ -37,7 +37,7 @@ type RowType = {
 };
 
 export interface ShowDetailsType {
-  showId: string;
+  showId: number;
   showTime: string;
   theatre: TheatreType;
   layout: RowType[],

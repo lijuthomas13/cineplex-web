@@ -6,7 +6,8 @@ const MovieShowFooter: React.FC<{
   total: number;
   selectedSeats: string[];
   clearSelection: () => void;
-}> = ({ total, selectedSeats, clearSelection }) => {
+  setShowConfirmModal: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ total, selectedSeats, clearSelection, setShowConfirmModal }) => {
   return (
     <footer className="sticky bottom-0 w-full bg-white border-t border-gray-200 mt-8">
       <div className="px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -29,8 +30,15 @@ const MovieShowFooter: React.FC<{
         </div>
 
         <div className="flex gap-3 w-auto">
-          <Button onClick={clearSelection}>Clear Selection</Button>
-          <Button disabled={selectedSeats.length === 0}>
+          <Button onClick={clearSelection} variant="secondary">
+            Clear Selection
+          </Button>
+          <Button
+            disabled={selectedSeats.length === 0}
+            onClick={() => {
+              setShowConfirmModal(true);
+            }}
+          >
             Proceed to Checkout
           </Button>
         </div>

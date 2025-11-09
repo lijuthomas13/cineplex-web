@@ -1,9 +1,12 @@
 @reference "../../../index.css";
 
 .cineplex_button {
-    @apply text-sm font-bold py-2.5 px-4 rounded-lg transition;
+    @apply text-sm font-bold py-2.5 px-4 rounded-lg transition cursor-pointer;
 
     &.primary {
         @apply bg-primary text-white hover:bg-primary/90
+    }
+        &.secondary {
+        @apply bg-purple-100 text-primary hover:bg-purple-200/90
     }
 }

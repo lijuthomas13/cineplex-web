@@ -19,3 +19,18 @@ export const fetchShowDetails = async (showId: string) => {
   );
   return response.data;
 };
+
+export const bookSeats = async (
+  showId: number,
+  selectedSeats: string[],
+  totalPrice: number,
+) => {
+  const response = await apiClient.post("rpc/book_seats", {
+    p_show_id: showId,
+    p_seats: selectedSeats,
+    p_total_price: totalPrice,
+    p_user_id: "cd9cf1ef-21c2-4869-b7cf-bdf6e2315342",
+  });
+
+  return response.data;
+}
