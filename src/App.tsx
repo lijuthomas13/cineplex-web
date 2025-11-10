@@ -20,7 +20,7 @@ function App() {
   }, []);
   return (
     <div
-      className={`h-screen overflow-hidden flex flex-col ${
+      className={`h-[100dvh] overflow-hidden flex flex-col ${
         theme == "dark" ? "dark dark:bg-gray-900" : ""
       } `}
     >
