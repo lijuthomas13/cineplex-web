@@ -36,11 +36,11 @@ const MovieDetails = () => {
 
         <div className="md:col-span-2 flex flex-col gap-8">
           <div className="flex flex-col gap-4">
-            <h1 className="text-4xl font-extrabold text-gray-900">
+            <h1 className="text-4xl font-extrabold text-gray-900  dark:text-white">
               {movie?.title}
             </h1>
 
-            <p className="text-gray-600 text-base">{movie?.description}</p>
+            <p className="text-gray-600 text-base dark:text-neutral-300">{movie?.description}</p>
             <div className="flex flex-wrap items-center gap-2 pt-2">
               {movie?.genre.map((genre) => (
                 <Badge variant="primary" key={genre}>
@@ -52,14 +52,14 @@ const MovieDetails = () => {
             <div className="flex flex-wrap items-center gap-6 text-gray-500 pt-4">
               <div className="flex items-center gap-2">
                 <FaRegStar className="text-primary text-xl" />
-                <span className="text-gray-900 font-semibold">
+                <span className="text-gray-900 font-semibold dark:text-white">
                   {movie?.rating}/10
                 </span>
-                <span className="text-sm">(IMDb)</span>
+                <span className="text-sm  dark:text-neutral-400">(IMDb)</span>
               </div>
               <div className="flex items-center gap-2">
                 <MdSchedule className="text-primary text-xl" />
-                <span className="text-sm font-medium">{movie?.duration}</span>
+                <span className="text-sm font-medium dark:text-white">{movie?.duration}</span>
               </div>
             </div>
           </div>
@@ -70,13 +70,13 @@ const MovieDetails = () => {
               {movie?.shows?.map((show) => (
                 <div
                   key={show.id}
-                  className="flex flex-col justify-between p-5 border border-gray-300 rounded-xl bg-white hover:border-primary/50 transition-all shadow-sm"
+                  className="flex flex-col justify-between p-5 border border-gray-300 rounded-xl bg-white hover:border-primary/50 transition-all shadow-sm dark:bg-white/5"
                 >
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900">
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">
                       {show.theatre.name}
                     </h3>
-                    <p className="text-sm text-gray-600 mt-1">
+                    <p className="text-sm text-gray-600 mt-1  dark:text-neutral-300">
                       {show.theatre.location}
                     </p>
                   </div>

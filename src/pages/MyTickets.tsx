@@ -17,7 +17,7 @@ const MyTickets = () => {
     <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-wrap justify-between gap-3 mb-6">
-          <h1 className="text-gray-900 text-4xl font-bold">My Tickets</h1>
+          <h1 className="text-gray-900 text-4xl font-bold dark:text-white">My Tickets</h1>
         </div>
 
         <div className="grid grid-cols-1 gap-6 mt-6">
@@ -25,7 +25,7 @@ const MyTickets = () => {
             return (
               <div
                 key={booking.booking_id}
-                className="flex flex-col md:flex-row items-stretch justify-between gap-6 p-6 rounded-xl bg-white shadow border border-gray-100"
+                className="flex flex-col md:flex-row items-stretch justify-between gap-6 p-6 rounded-xl bg-white dark:bg-white/9 shadow border border-gray-100"
               >
                 <div
                   className="flex-shrink-0 w-full md:w-40 h-60 md:h-auto rounded-lg bg-center bg-no-repeat bg-cover"
@@ -33,21 +33,21 @@ const MyTickets = () => {
                   data-alt={`Movie poster for ${booking.movie_title}`}
                 />
                 <div className="flex flex-col gap-4 flex-grow">
-                  <p className="text-gray-900 text-xl font-bold leading-tight">
+                  <p className="text-gray-900 dark:text-white text-xl font-bold leading-tight">
                     {booking.movie_title}
                   </p>
 
                   <div className="space-y-2">
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-gray-500 text-sm dark:text-neutral-300">
                       {booking.theatre_name} – {booking.theatre_location}
                     </p>
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-gray-500 text-sm dark:text-neutral-300">
                       {formatDate(booking?.show_time)}
                     </p>
-                    <p className="text-gray-900 text-sm font-medium">
+                    <p className="text-gray-900 text-sm font-medium dark:text-white">
                       Seats: {booking.seats.join(", ")}
                     </p>
-                    <p className="text-gray-900 text-sm font-medium">
+                    <p className="text-gray-900 text-sm font-medium  dark:text-white">
                       Total: ₹{booking.total_price}
                     </p>
                   </div>
