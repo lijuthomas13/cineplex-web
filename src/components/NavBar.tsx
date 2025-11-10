@@ -1,14 +1,34 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { RiMovie2Line } from "react-icons/ri";
 import { BsTicketPerforatedFill } from "react-icons/bs";
-import { MdDarkMode, MdHome } from "react-icons/md";
+import { MdHome } from "react-icons/md";
 import { useGlobalStore } from "../store/useGlobalStore";
-import { CiLight } from "react-icons/ci";
 import { FaCircleChevronLeft } from "react-icons/fa6";
+import Lottie, { type LottieRefCurrentProps } from "lottie-react";
+import themeButton from "../assets/themeButton.json";
+import { useEffect, useRef } from "react";
+import { RxAvatar } from "react-icons/rx";
 
 const NavBar = () => {
   const { theme, setTheme } = useGlobalStore();
   const navigate = useNavigate();
+  const lottieRef = useRef<LottieRefCurrentProps>(null);
+    useEffect(() => {
+    const localTheme = localStorage.getItem("cineplex_theme");
+    if (localTheme && localTheme == "light" && lottieRef.current) {
+      lottieRef.current.play();
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme == "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    if (lottieRef.current) {
+      lottieRef.current.setDirection(newTheme == "dark" ? -1 : 1);
+      lottieRef.current.play();
+    }
+  };
+
   return (
     <header className="position:sticky top-0 flex flex-col justify-between whitespace-nowrap">
       <section className="border-b border-solid border-gray-300 dark:border-neutral-700 flex justify-between items-center  px-4 sm:px-6 lg:px-10 py-3">
@@ -22,26 +42,19 @@ const NavBar = () => {
             </div>
           </Link>
         </div>
-        <div className="flex flex-1 justify-end items-center gap-4 sm:gap-6">
-          {theme == "light" && (
-            <MdDarkMode
-              onClick={() => setTheme("dark")}
-              className="text-4xl text-gray-800"
+        <div className="flex flex-1 justify-end items-center gap-2 sm:gap-4">
+          <button
+            onClick={() => toggleTheme()}
+            className="w-16 h-16 cursor-pointer scale-150"
+          >
+            <Lottie
+              lottieRef={lottieRef}
+              animationData={themeButton}
+              loop={false}
+              autoplay={false}
             />
-          )}
-          {theme == "dark" && (
-            <CiLight
-              onClick={() => setTheme("light")}
-              className="text-4xl text-white"
-            />
-          )}
-          <div
-            className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-            style={{
-              backgroundImage:
-                'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfQrrVg9rVBzddYUKWnWfXklcdBYtQwioZaMocG_wOu5QHngsAen2YLsiHCfp0IZ6NhtYwthE8HLs66MnSNR01BKyZJ7PR4tL0JWk72pnBcsxONy66ixdZQPI9ZAppw-wIoLwsYJImJKJjfnahdqBLoxo8xoEh1kj9rSN7CnARitG880Oh7yhQo_iIB0tcvxcM_BwkcKMQG9a2VyPGaHaCUVoyTR3HNwSqLofMjjfxMi-D8rBbzvwrLjFZx-aq_1Np0hiGrHxIGHs")',
-            }}
-          />
+          </button>
+          <RxAvatar className="text-5xl text-primary" />
         </div>
       </section>
       <section className="border-b border-solid border-gray-200 dark:border-neutral-500 flex gap-4 md:gap-8 items-center  px-4 sm:px-6 lg:px-10 py-3">
