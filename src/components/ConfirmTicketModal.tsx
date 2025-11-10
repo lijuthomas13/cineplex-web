@@ -8,6 +8,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { BsTicketPerforatedFill } from "react-icons/bs";
+import { useGlobalStore } from "../store/useGlobalStore";
 
 const ConfirmTicketModal: React.FC<{
   show: ShowDetailsType | null;
@@ -17,6 +18,7 @@ const ConfirmTicketModal: React.FC<{
 }> = ({ show, total, selectedSeats, onClose }) => {
   const [isConfirming, setIsConfirming] = useState(false);
   const navigate = useNavigate();
+  const { theme } = useGlobalStore();
   const confirmTickets = async () => {
     setIsConfirming(true);
     if (show?.showId) {
@@ -32,7 +34,7 @@ const ConfirmTicketModal: React.FC<{
   };
   return (
     <Dialog
-    themeColor="dark"
+      themeColor={theme == "dark" ? "dark" : "light"}
       title={
         <div className="flex gap-2 items-center">
           <BsTicketPerforatedFill className="text-primary text-xl"></BsTicketPerforatedFill>
