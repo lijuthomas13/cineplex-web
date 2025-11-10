@@ -10,5 +10,6 @@ export const useGlobalStore = create<GlobalSettings>((set) => ({
 
   setTheme: async (theme: "light" | "dark") => {
     set({ theme: theme });
+    localStorage.setItem("cineplex_theme", theme);
   },
 }));
