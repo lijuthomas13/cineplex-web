@@ -64,7 +64,7 @@ const MovieDetails = () => {
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <h2 className="text-2xl font-bold text-gray-900">Select Theatre</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Select Theatre</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {movie?.shows?.map((show) => (

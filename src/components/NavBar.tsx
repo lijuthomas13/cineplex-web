@@ -1,18 +1,22 @@
-import { Link, NavLink } from "react-router-dom";
-import { RiMovie2Line } from "react-icons/ri";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { BsTicketPerforatedFill } from "react-icons/bs";
 import { MdDarkMode, MdHome } from "react-icons/md";
 import { useGlobalStore } from "../store/useGlobalStore";
 import { CiLight } from "react-icons/ci";
+import { FaCircleChevronLeft } from "react-icons/fa6";
 
 const NavBar = () => {
   const { theme, setTheme } = useGlobalStore();
+  const navigate = useNavigate();
   return (
     <header className="position:sticky top-0 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-4 sm:px-6 lg:px-10 py-3">
       <div className="flex items-center gap-6">
+        <FaCircleChevronLeft
+          className="text-4xl text-primary cursor-pointer"
+          onClick={() => navigate(-1)}
+        />
         <Link to="/">
           <div className="flex items-center gap-4 text-black">
-            <RiMovie2Line className="text-primary text-2xl hidden md:block" />
             <h2 className="text-black text-lg font-bold  dark:text-white">
               Cineplex
             </h2>
