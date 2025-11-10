@@ -49,21 +49,21 @@ const MyTickets = () => {
                     data-alt={`Movie poster for ${booking.movie_title}`}
                   />
                   <div className="flex flex-col gap-4 flex-grow">
-                    <p className="text-gray-900 dark:text-white text-xl font-bold leading-tight">
+                    <p className="text-gray-900 dark:text-white text-2xl font-bold leading-tight">
                       {booking.movie_title}
                     </p>
 
-                    <div className="space-y-2">
-                      <p className="text-gray-500 text-sm dark:text-neutral-300">
+                    <div className="space-y-2 grid grid-cols-2 gap-2">
+                      <p className="text-gray-900 font-semibold text-sm dark:text-white">
                         {booking.theatre_name} – {booking.theatre_location}
                       </p>
-                      <p className="text-gray-500 text-sm dark:text-neutral-300">
+                      <p className="text-gray-900 font-semibold text-sm dark:text-white">
                         {formatDate(booking?.show_time)}
                       </p>
-                      <p className="text-gray-900 text-sm font-medium dark:text-white">
+                      <p className="text-gray-500 text-sm font-medium dark:text-neutral-300">
                         Seats: {booking.seats.join(", ")}
                       </p>
-                      <p className="text-gray-900 text-sm font-medium  dark:text-white">
+                      <p className="text-gray-500 text-sm font-medium  dark:text-neutral-300">
                         Total: ₹{booking.total_price}
                       </p>
                     </div>

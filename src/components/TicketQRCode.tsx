@@ -22,7 +22,7 @@ const TicketQRCode: React.FC<{
       onClose={() => onClose()}
     >
       <div className="p-4">
-        <div className="flex-shrink-0 w-full md:w-80 md:h-80 flex items-center justify-center p-3 bg-white border border-gray-200 rounded-lg">
+        <div className="flex-shrink-0 w-full w-50 h-50 md:w-80 md:h-80 flex items-center justify-center p-3 bg-white border border-gray-200 rounded-lg">
           <img
             alt={`QR code for ${booking.movie_title} ticket`}
             src={`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(
