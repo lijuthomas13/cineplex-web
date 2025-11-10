@@ -32,6 +32,7 @@ const ConfirmTicketModal: React.FC<{
   };
   return (
     <Dialog
+    themeColor="dark"
       title={
         <div className="flex gap-2 items-center">
           <BsTicketPerforatedFill className="text-primary text-xl"></BsTicketPerforatedFill>
@@ -40,18 +41,18 @@ const ConfirmTicketModal: React.FC<{
       }
       onClose={() => onClose()}
     >
-      <div className="flex flex-col gap-2">
-        <div className="flex justify-between p-2 bg-gray-100 rounded gap-16">
+      <div className="flex flex-col gap-2 dark:bg-gray-800">
+        <div className="movie_details_menu flex justify-between p-2 bg-gray-100 rounded gap-16">
           <p>Movie</p>
           <p className="font-semibold"> {show?.movie.title} </p>
         </div>
-        <div className="flex justify-between p-2 bg-gray-100 rounded gap-16">
+        <div className="movie_details_menu flex justify-between p-2 bg-gray-100 rounded gap-16">
           <p>Date & Time</p>
           <p className="font-semibold">
             {show?.showTime && new Date(show?.showTime).toLocaleString()}
           </p>
         </div>
-        <div className="flex justify-between p-2 bg-gray-100 rounded gap-16">
+        <div className="movie_details_menu flex justify-between p-2 bg-gray-100 rounded gap-16">
           <p>Theatre</p>
           <p className="font-semibold">{show?.theatre?.name}</p>
         </div>

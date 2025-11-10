@@ -49,8 +49,8 @@ const ShowDetails = () => {
     <div className="flex-1 overflow-y-auto">
       <div className="flex justify-center py-5">
         <div className="w-full max-w-6xl px-4">
-          <h1 className="text-3xl font-bold mb-1">Select Your Seats</h1>
-          <p className="text-gray-600 text-sm">
+          <h1 className="text-3xl font-bold mb-1 dark:text-white">Select Your Seats</h1>
+          <p className="text-gray-600 text-sm  dark:text-neutral-300 ">
             {show?.movie.title} —{" "}
             {show?.showTime && new Date(show?.showTime).toLocaleString()}
           </p>
@@ -60,8 +60,8 @@ const ShowDetails = () => {
       <main className="flex flex-col lg:flex-row gap-10 justify-center px-4 mt-4">
         <div className="flex-grow flex flex-col items-center">
           <div className="relative w-full h-16">
-            <div className="absolute inset-x-0 bottom-0 h-20 border-b-2 border-gray-300 rounded-b-[100%] transform rotate-180" />
-            <p className="absolute top-0 left-1/2 -translate-x-1/2 text-gray-500 font-semibold">
+            <div className="absolute inset-x-0 bottom-0 h-20 border-b-2 border-gray-300  dark:border-neutral-300 rounded-b-[100%] transform rotate-180" />
+            <p className="absolute top-0 left-1/2 -translate-x-1/2 text-gray-500 font-semibold  dark:text-neutral-300">
               SCREEN
             </p>
           </div>
