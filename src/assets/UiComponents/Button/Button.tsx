@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       type={type}
-      className={`cineplex_button ${variant} ${className}`}
+      className={`cineplex_button ${variant} ${className} ${disabled ? "disabled" : ""}`}
       onClick={onClick}
       disabled={disabled}
     >

@@ -17,7 +17,7 @@ const NavBar = () => {
             <div className="flex items-center gap-2 text-black">
               <RiMovie2Line className="text-4xl text-primary" />
               <h2 className="text-black text-lg font-bold  dark:text-white">
-                Cineplex
+                Cine Plex
               </h2>
             </div>
           </Link>
