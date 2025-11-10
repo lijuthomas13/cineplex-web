@@ -31,7 +31,7 @@ const NavBar = () => {
 
   return (
     <header className="position:sticky top-0 flex flex-col justify-between whitespace-nowrap">
-      <section className="border-b border-solid border-gray-300 dark:border-neutral-700 flex justify-between items-center  px-4 sm:px-6 lg:px-10 py-3">
+      <section className="border-b border-solid border-gray-300 dark:border-neutral-700 flex justify-between items-center  px-4 sm:px-6 lg:px-10 md:py-2">
         <div className="flex items-center gap-6">
           <Link to="/">
             <div className="flex items-center gap-2 text-black">
