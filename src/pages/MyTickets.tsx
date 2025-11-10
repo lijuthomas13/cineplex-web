@@ -6,6 +6,7 @@ import Badge from "../assets/UiComponents/Badge/Badge";
 import { IoQrCode } from "react-icons/io5";
 import type { BookingType } from "../types/movieType";
 import TicketQRCode from "../components/TicketQRCode";
+import NoRecords from "../assets/UiComponents/NoRecords";
 
 const MyTickets = () => {
   const { isLoading, bookings, fetchMyTickets } = useMyTicketsStore();
@@ -15,14 +16,17 @@ const MyTickets = () => {
   useEffect(() => {
     fetchMyTickets();
   }, []);
-  if (isLoading) {
-    return <Loader />;
-  }
 
   const openQr = (booking: BookingType) => {
     setQrOpen(true);
     setQrOpened(booking);
   };
+  if (isLoading) {
+    return <Loader />;
+  }
+  if (bookings?.length <= 0) {
+    return <NoRecords />;
+  }
 
   return (
     <>
