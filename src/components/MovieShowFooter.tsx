@@ -9,18 +9,18 @@ const MovieShowFooter: React.FC<{
   setShowConfirmModal: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ total, selectedSeats, clearSelection, setShowConfirmModal }) => {
   return (
-    <footer className="sticky bottom-0 w-full bg-white border-t border-gray-200 mt-8">
+    <footer className="sticky bottom-0 w-full bg-white dark:bg-gray-800 border-t border-gray-200 mt-8">
       <div className="px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex flex-1 justify-start items-center gap-4 text-center w-full px-4">
           <div className="pr-4 border-r border-gray-300">
-            <p className="text-sm text-gray-500">Total:</p>
-            <p className="text-2xl font-bold text-gray-800">₹{total}</p>
+            <p className="text-sm text-gray-500  dark:text-neutral-300">Total:</p>
+            <p className="text-2xl font-bold text-gray-800 dark:text-white">₹{total}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-500">Seats Selected:</p>
+            <p className="text-sm text-gray-500  dark:text-neutral-200">Seats Selected:</p>
             <div className="flex gap-2 mt-1 flex-wrap justify-start">
               {selectedSeats.length === 0 && (
-                <span className="text-gray-400 text-xs">None</span>
+                <span className="text-gray-400 text-xs  dark:text-neutral-300">None</span>
               )}
               {selectedSeats.map((seat) => (
                 <Badge key={seat}>{seat}</Badge>

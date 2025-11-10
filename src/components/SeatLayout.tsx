@@ -41,10 +41,10 @@ const SeatLayout: React.FC<{
                 className={`size-6 sm:size-7 rounded 
                         ${
                           seat.status === SEAT_STATUS.BOOKED
-                            ? "bg-gray-300 cursor-not-allowed"
+                            ? "bg-gray-300 dark:bg-white/9 cursor-not-allowed"
                             : isSelected
                             ? "bg-green-500 border-2 border-transparent"
-                            : `bg-white border-2 ${borderColor} hover:bg-green-400/20`
+                            : `bg-transparent border-2 ${borderColor} hover:bg-green-400/20`
                         }`}
                 title={seat?.id}
               />

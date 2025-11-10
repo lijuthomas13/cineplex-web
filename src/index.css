@@ -19,3 +19,16 @@
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
+.k-window-dark{
+  @apply !bg-gray-800;
+  .k-dialog-titlebar{
+    @apply !bg-gray-800 border-b border-neutral-400;
+  }
+  @apply !text-white;
+  .movie_details_menu{
+    @apply !bg-gray-600
+  }
+  .text-gray-500{
+    @apply !text-neutral-200;
+  }
+}
