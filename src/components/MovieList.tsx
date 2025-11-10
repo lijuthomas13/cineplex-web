@@ -31,7 +31,7 @@ const MovieList = () => {
             className="flex flex-col group overflow-hidden rounded-xl bg-gray-100 border border-transparent hover:border-primary/50 transition duration-300 dark:bg-white/5 dark:text-white"
           >
             <div
-              className="aspect-[3/4] bg-cover bg-center rounded-t-xl transition-transform duration-500 group-hover:scale-105"
+              className="aspect-[3/4] bg-cover bg-center rounded-t-xl !transition-transform !duration-500 group-hover:scale-105"
               style={{ backgroundImage: `url(${movie.poster})` }}
             ></div>
 

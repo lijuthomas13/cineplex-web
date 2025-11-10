@@ -83,7 +83,7 @@ const ConfirmTicketModal: React.FC<{
           onClick={() => confirmTickets()}
           disabled={isConfirming}
         >
-          {isConfirming ? "Confirming ..." : "Yes, Proceed"}
+          {isConfirming ? "Booking..." : "Book Now"}
         </Button>
       </DialogActionsBar>
     </Dialog>

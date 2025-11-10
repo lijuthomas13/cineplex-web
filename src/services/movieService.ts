@@ -29,7 +29,7 @@ export const bookSeats = async (
     p_show_id: showId,
     p_seats: selectedSeats,
     p_total_price: totalPrice,
-    p_user_id: "cd9cf1ef-21c2-4869-b7cf-bdf6e2315342",
+    p_user_id: "54b7a882-048f-4aa9-8195-f9db6c770a48",
   });
 
   return response.data;
@@ -37,7 +37,7 @@ export const bookSeats = async (
 
 export const fetchUserBookings = async () => {
   const response = await apiClient.post<any>("rpc/get_user_bookings", {
-    p_user_id: "cd9cf1ef-21c2-4869-b7cf-bdf6e2315342",
+    p_user_id: "54b7a882-048f-4aa9-8195-f9db6c770a48",
   });
   return response.data;
 };

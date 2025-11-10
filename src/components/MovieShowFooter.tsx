@@ -20,7 +20,7 @@ const MovieShowFooter: React.FC<{
             <p className="text-sm text-gray-500  dark:text-neutral-200">Seats Selected:</p>
             <div className="flex gap-2 mt-1 flex-wrap justify-start">
               {selectedSeats.length === 0 && (
-                <span className="text-gray-400 text-xs  dark:text-neutral-300">None</span>
+                <span className="text-gray-400 text-md dark:text-neutral-300">None</span>
               )}
               {selectedSeats.map((seat) => (
                 <Badge key={seat}>{seat}</Badge>
