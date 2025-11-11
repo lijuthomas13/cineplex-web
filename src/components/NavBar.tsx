@@ -14,8 +14,8 @@ const NavBar = () => {
   const navigate = useNavigate();
   const lottieRef = useRef<LottieRefCurrentProps>(null);
     useEffect(() => {
-    const localTheme = localStorage.getItem("cineplex_theme");
-    if (localTheme && localTheme !== "dark" && lottieRef.current) {
+    const localTheme = localStorage.getItem("cineplex_theme") || "light";
+    if (localTheme && localTheme == "light" && lottieRef.current) {
       lottieRef.current.play();
     }
   }, []);
