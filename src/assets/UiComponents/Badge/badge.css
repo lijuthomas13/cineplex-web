@@ -8,4 +8,7 @@
     &.secondary {
         @apply text-gray-600 bg-gray-200
     }
+    &.danger {
+        @apply bg-red-300 text-red-700
+    }
 }
