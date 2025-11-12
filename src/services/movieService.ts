@@ -13,17 +13,16 @@ export const fetchMovieDetails = async (movieId: string) => {
 };
 
 export const fetchShowDetails = async (showId: string) => {
-  const response = await apiClient.post<any>(
-    "rpc/get_show_details",
-    { show_id_input: showId }
-  );
+  const response = await apiClient.post<any>("rpc/get_show_details", {
+    show_id_input: showId,
+  });
   return response.data;
 };
 
 export const bookSeats = async (
   showId: number,
   selectedSeats: string[],
-  totalPrice: number,
+  totalPrice: number
 ) => {
   const response = await apiClient.post("rpc/book_seats", {
     p_show_id: showId,
@@ -33,11 +32,19 @@ export const bookSeats = async (
   });
 
   return response.data;
-}
+};
 
 export const fetchUserBookings = async () => {
   const response = await apiClient.post<any>("rpc/get_user_bookings", {
     p_user_id: "54b7a882-048f-4aa9-8195-f9db6c770a48",
   });
+  return response.data;
+};
+
+export const cancelBooking = async (bookingId: number) => {
+  const response = await apiClient.post("rpc/cancel_booking", {
+    p_booking_id: bookingId,
+  });
+
   return response.data;
 };

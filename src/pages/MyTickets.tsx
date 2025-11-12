@@ -7,11 +7,15 @@ import { IoQrCode } from "react-icons/io5";
 import type { BookingType } from "../types/movieType";
 import TicketQRCode from "../components/TicketQRCode";
 import NoRecords from "../assets/UiComponents/NoRecords";
+import { MdCancel } from "react-icons/md";
+import CancelTicketModal from "../components/CancelTicketModal";
 
 const MyTickets = () => {
   const { isLoading, bookings, fetchMyTickets } = useMyTicketsStore();
   const [isQrOpen, setQrOpen] = useState<boolean>(false);
   const [openedQr, setQrOpened] = useState<BookingType | null>(null);
+  const [isCancelModalOpen , setIsCancelModalOpen] = useState(false);
+  const [bookingSelectedForCancel , setBookingForCancel] = useState<BookingType | null>(null)
 
   useEffect(() => {
     fetchMyTickets();
@@ -21,6 +25,12 @@ const MyTickets = () => {
     setQrOpen(true);
     setQrOpened(booking);
   };
+
+  const openCancelTicket = (booking: BookingType) => {
+    setIsCancelModalOpen(true)
+    setBookingForCancel(booking)
+  }
+
   if (isLoading) {
     return <Loader />;
   }
@@ -71,14 +81,24 @@ const MyTickets = () => {
                         Total: ₹{booking.total_price}
                       </p>
                     </div>
-                    <button onClick={() => openQr(booking)} className="w-fit">
-                      <Badge>
-                        <div className="flex gap-1 items-center">
-                          <IoQrCode className="text-primary text-lg" />
-                          <p>View Ticket</p>
-                        </div>
-                      </Badge>
-                    </button>
+                    <div className="flex gap-4">
+                      <button onClick={() => openQr(booking)} className="w-fit">
+                        <Badge id="view-ticket">
+                          <div className="flex gap-1 items-center">
+                            <IoQrCode className="text-primary text-lg" />
+                            <p>View Ticket</p>
+                          </div>
+                        </Badge>
+                      </button>
+                      <button onClick={() => openCancelTicket(booking)} className="w-fit">
+                        <Badge variant="danger" id="cancel-button">
+                          <div className="flex gap-1 items-center">
+                            <MdCancel className="text-red-700 text-lg" />
+                            <p>Cancel Ticket</p>
+                          </div>
+                        </Badge>
+                      </button>
+                    </div>
                   </div>
                 </div>
               );
@@ -93,6 +113,16 @@ const MyTickets = () => {
             setQrOpen(false);
             setQrOpened(null);
           }}
+        />
+      )}
+      {isCancelModalOpen && bookingSelectedForCancel && (
+        <CancelTicketModal
+          booking={bookingSelectedForCancel}
+          onClose={() => {
+            setIsCancelModalOpen(false);
+            setBookingForCancel(null);
+          }}
+          fetchMyTickets={fetchMyTickets}
         />
       )}
     </>

@@ -1,23 +1,23 @@
 import React, { type ReactNode } from "react";
 import "./badge.css"
 
-type BadgeVariant = "primary" | "secondary";
+type BadgeVariant = "primary" | "secondary" | "danger";
 
 interface BadgeProps {
   variant?: BadgeVariant;
   className?: string;
-  key?: any;
+  id?: any;
   children: ReactNode;
 }
 
 const Badge: React.FC<BadgeProps> = ({
-  key,
+  id,
   variant = "primary",
   className,
   children,
 }) => {
   return (
-    <span key={key} className={`cineplex_badge ${variant} ${className}`}>
+    <span key={id} className={`cineplex_badge ${variant} ${className}`}>
       {children}
     </span>
   );
